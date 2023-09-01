@@ -1,0 +1,38 @@
+Nov 17 14:13:29 lfs-eyohn systemd[489]: Queued start job for default target Main User Target.
+Nov 17 14:13:29 lfs-eyohn systemd[489]: Created slice User Application Slice.
+Nov 17 14:13:29 lfs-eyohn systemd[489]: Reached target Paths.
+Nov 17 14:13:29 lfs-eyohn systemd[489]: Reached target Timers.
+Nov 17 14:13:29 lfs-eyohn systemd[489]: Starting D-Bus User Message Bus Socket...
+Nov 17 14:13:29 lfs-eyohn systemd[489]: Listening on D-Bus User Message Bus Socket.
+Nov 17 14:13:29 lfs-eyohn systemd[489]: Reached target Sockets.
+Nov 17 14:13:29 lfs-eyohn systemd[489]: Reached target Basic System.
+Nov 17 14:13:29 lfs-eyohn systemd[489]: Reached target Main User Target.
+Nov 17 14:13:29 lfs-eyohn systemd[489]: Startup finished in 42ms.
+Nov 17 14:13:30 lfs-eyohn systemd[489]: Created slice User Core Session Slice.
+Nov 17 14:13:30 lfs-eyohn systemd[489]: Starting D-Bus User Message Bus...
+Nov 17 14:13:30 lfs-eyohn systemd[489]: Started D-Bus User Message Bus.
+Nov 17 14:13:30 lfs-eyohn dbus-daemon[506]: [session uid=1000 pid=506] Successfully activated service 'org.freedesktop.systemd1'
+Nov 17 14:13:30 lfs-eyohn dbus-daemon[506]: [session uid=1000 pid=506] Activating via systemd: service name='org.a11y.Bus' unit='at-spi-dbus-bus.service' requested by ':1.2' (uid=1000 pid=496 comm="xfce4-session" label="kernel")
+Nov 17 14:13:30 lfs-eyohn systemd[489]: Starting Accessibility services bus...
+Nov 17 14:13:30 lfs-eyohn dbus-daemon[506]: [session uid=1000 pid=506] Successfully activated service 'org.a11y.Bus'
+Nov 17 14:13:30 lfs-eyohn systemd[489]: Started Accessibility services bus.
+Nov 17 14:13:30 lfs-eyohn dbus-daemon[506]: [session uid=1000 pid=506] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=496 comm="xfce4-session" label="kernel")
+Nov 17 14:13:30 lfs-eyohn dbus-daemon[506]: [session uid=1000 pid=506] Successfully activated service 'org.xfce.Xfconf'
+Nov 17 14:13:30 lfs-eyohn at-spi-bus-launcher[511]: dbus-daemon[511]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=496 comm="xfce4-session" label="kernel")
+Nov 17 14:13:30 lfs-eyohn at-spi-bus-launcher[511]: dbus-daemon[511]: Successfully activated service 'org.a11y.atspi.Registry'
+Nov 17 14:13:30 lfs-eyohn at-spi-bus-launcher[521]: SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+Nov 17 14:13:40 lfs-eyohn dbus-daemon[506]: [session uid=1000 pid=506] Activating service name='org.freedesktop.thumbnails.Thumbnailer1' requested by ':1.27' (uid=1000 pid=583 comm="xfdesktop --display :0.0 --sm-client-id 2844bfec0-" label="kernel")
+Nov 17 14:13:40 lfs-eyohn org.freedesktop.thumbnails.Thumbnailer1[589]: Registered thumbnailer /usr/bin/gdk-pixbuf-thumbnailer -s %s %u %o
+Nov 17 14:13:40 lfs-eyohn org.freedesktop.thumbnails.Thumbnailer1[589]: Registered thumbnailer /usr/bin/gdk-pixbuf-thumbnailer -s %s %u %o
+Nov 17 14:13:40 lfs-eyohn dbus-daemon[506]: [session uid=1000 pid=506] Successfully activated service 'org.freedesktop.thumbnails.Thumbnailer1'
+Nov 17 14:13:48 lfs-eyohn pulseaudio[661]: [pulseaudio] cli-command.c: stat('/etc/pulse/default.pa.d'): No such file or directory
+Nov 17 14:14:16 lfs-eyohn systemd-coredump[1040]: elfutils disabled, parsing ELF objects not supported
+Nov 17 14:14:16 lfs-eyohn systemd-coredump[1040]: Process 655 (xfce4-power-man) of user 1000 dumped core.
+Nov 17 14:15:13 lfs-eyohn systemd-coredump[1485]: elfutils disabled, parsing ELF objects not supported
+Nov 17 14:15:13 lfs-eyohn systemd-coredump[1485]: Process 597 (panel-9-power-m) of user 1000 dumped core.
+Nov 17 14:16:37 lfs-eyohn systemd-coredump[1602]: elfutils disabled, parsing ELF objects not supported
+Nov 17 14:16:37 lfs-eyohn systemd-coredump[1602]: Process 1491 (panel-9-power-m) of user 1000 dumped core.
+Nov 17 14:18:03 lfs-eyohn systemd-coredump[1762]: elfutils disabled, parsing ELF objects not supported
+Nov 17 14:18:03 lfs-eyohn systemd-coredump[1762]: Process 1608 (panel-9-power-m) of user 1000 dumped core.
+Nov 17 14:19:22 lfs-eyohn systemd-coredump[1872]: elfutils disabled, parsing ELF objects not supported
+Nov 17 14:19:22 lfs-eyohn systemd-coredump[1872]: Process 1775 (panel-9-power-m) of user 1000 dumped core.

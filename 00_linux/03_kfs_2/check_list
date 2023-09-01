@@ -1,0 +1,15 @@
+1. GDT struct:
+	a) This is list of 64bit entries
+	b) First entry = 0 or NULL
+2. Create GDT struct
+	a) Create GDT table
+	b) Message GDT addr to proc
+	c) Load CS, DS, ES, FS, GS registers
+		CS - code segment
+		DS - data segment
+		ES
+		FS
+		GS
+3. Define GDT
+	lgts <addr> - include addr GDT in processor
+4. Use GDT

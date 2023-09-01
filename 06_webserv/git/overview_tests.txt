@@ -1,0 +1,58 @@
+Welcome in this little webserver tester.
+Passing the test here is the minimum before going to an evaluation.
+
+THIS TEST IS NOT MEANT TO BE THE ONLY TEST IN THE EVALUATION!!!
+
+Before starting please follow the next few steps (files content can be
+anything and will be shown to you by the test):
+- Download the cgi_test executable on the host									+
+- Create a directory YoupiBanane with:											+
+	-a file name youpi.bad_extension											+
+	-a file name youpi.bla														+
+	-a sub directory called nop													+
+		-a file name youpi.bad_extension in nop									+
+		-a file name other.pouic in nop											+
+	-a sub directory called Yeah												+
+		-a file name not_happy.bad_extension in Yeah							+
+
+Setup the configuration file as follow:
+	- / must answer to GET request ONLY											+
+	- /put_test/* must answer to PUT request and save files to a directory		+
+		of you r choice
+	- any file with .bla as extension must answer to POST request by calling	+
+		the cgi_test executable
+	- /post_body must answer anything to POST request with a maxBody of 100		-
+	- /directory/ must answer to GET request and the root of it would be the	+
+		repository YoupiBanane and if no file are requested, it should search
+		for youpi.bad_extension files
+
+
+Добро пожаловать в этот маленький тестер веб-серверов.
+Сдать тест здесь - это минимум перед тем, как перейти к оценке.
+
+ДАННЫЙ ТЕСТ НЕ ЯВЛЯЕТСЯ ЕДИНСТВЕННЫМ ТЕСТОМ В ОЦЕНКЕ !!! 
+
+Перед тем, как начать, выполните следующие несколько шагов (содержимое файлов
+может быть любым, и тест покажет вам его):
+- Загрузите исполняемый файл cgi_test на хост
+- Создайте каталог YoupiBanane с:
+	-a имя файла youpi.bad_extension
+	-a имя файла youpi.bla
+	-подкаталог с именем nop
+		-a имя файла youpi.bad_extension в nop
+		-a имя файла other.pouic в nop
+	-подкаталог под названием Yeah
+		-a имя файла not_happy.bad_extension в Yeah
+
+Настройте файл конфигурации следующим образом:
+	- / должен отвечать ТОЛЬКО на запрос GET
+	- / put_test / * должен отвечать на запрос PUT и сохранять файлы в каталог
+		по вашему выбору
+	- любой файл с расширением .bla должен отвечать на запрос POST, вызывая
+		исполняемый файл cgi_test
+	- / post_body должен отвечать на любой запрос POST с maxBody 100
+	- / directory / должен отвечать на запрос GET, и его корнем будет
+		репозиторий YoupiBanane, и если файл не запрашивается, он должен искать
+		файлы youpi.bad_extension
+
+Перед запуском убедитесь, что сервер запущен 

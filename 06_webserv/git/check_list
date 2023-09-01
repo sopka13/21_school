@@ -1,0 +1,151 @@
+Mandatory Part
+Check the code and ask questions
+- launch the installation of siege with homebrew									+
+	// запустите установщик siege with homebrew
+- Explain the basics of an HTTP server.												+
+	// объясните основы сервера
+- Ask which function they used for I/O Multiplexing.								+
+	// Спросите, какую функцию они использовали для мультиплексирования
+	// ввода / вывода.
+- Ask to get an explanation of how select (or equivalent) is working.				+
+	// Попросите объяснить, как работает select (или эквивалент).
+- Ask if they use only one select (or equivalent) and how they've managed the		+
+	server accept and the client read/write.
+	// Спросите, используют ли они только один выбор (или эквивалент), и как
+	// они управляли приемом сервера и чтением / записью клиента. 
+- the select (or equivalent) should be in the main loop and should check fd for		+
+	read and write AT THE SAME TIME, if not please give a 0 and stop the
+	evaluation.
+	// select (или эквивалент) должен быть в основном цикле и должен проверять
+	// fd на чтение и запись ОДНОВРЕМЕННО, если нет, пожалуйста, дайте 0 и
+	// остановите оценку.
+- There should be only one read or one write per client per select					+
+	(or equivalent). Ask to show you the code that goes from the select
+	(or equivalent) to the read and write of a client.
+	// Должно быть только одно чтение или одна запись для каждого клиента на
+	// выбор (или эквивалент). Попросите показать вам код, который идет от
+	// выбора (или эквивалента) к чтению и записи клиента. 
+- Search for all read/recv/write/send on a socket and check that if an error		+
+	returned the client is removed
+	// Найдите все чтение / запись / запись / отправку в сокете и убедитесь,
+	// что в случае возврата ошибки клиент удален.
+- Search for all read/recv/write/send and check if the returned value is well		+
+	checked. (checking only -1 or 0 is not good you should check both)
+	// Найдите все чтение / получение / запись / отправку и проверьте,
+	// правильно ли проверено возвращаемое значение. (проверка только -1 или 0
+	// нехорошо, вы должны проверить оба) 
+- If a check of errno is done after read/recv/write/send. Please stop the			+
+	evaluation and put a mark to 0
+	// Если проверка errno выполняется после чтения / получения / записи /
+	// /отправки. Пожалуйста, остановите оценку и поставьте оценку 0 
+- Writing or reading ANY file descriptor without going through the select (or		+
+	equivalent) is strictly FORBIDDEN
+	// Запись или чтение ЛЮБОГО файлового дескриптора без select (или его
+	// эквивалента) строго ЗАПРЕЩЕНО. 
+- The project must compile without any re -link issue if not use the compile		+
+	flag.
+	// Проект должен компилироваться без всяких re -link если не использовать
+	// флаги компиляции
+- If any point is unclear or is not correct use the flag for incomplete work.		+
+	// Если какой-либо пункт неясен или неверен, используйте флажок для
+	// незавершенной работы. 
+
+Configuration
+In the configuration file check if you can do the following and test the			+
+	result:
+	// В файле конфигурации проверьте, можете ли вы сделать следующее, и
+	// проверьте результат: 
+- look for the HTTP response status codes list on internet and during this			+
+	evaluation if any status codes is wrong don't give related points.
+	// поищите список кодов состояния HTTP-ответа в Интернете, и во время этой
+	// оценки, если какие-либо коды состояния неверны, не начисляйте
+	// соответствующие баллы. 
+- setup multiple servers with different port										+
+	// настройте несколько серверов со своими портами
+- setup multiple servers with different hostname (use something like:				+
+	curl --resolve example.com:80:127.0.0.1 http://example.com/)
+	// настройте несколько серверов со своими именами
+- setup default error page (try to change the error 404)							+
+	// установите страницу ошибки по умолчанию (попробуй поменять ошибку 404)
+- limit the client body (use curl -X POST -H "Content-Type: plain/text" --data		+
+	"BODY IS HERE write something shorter or longer than body limit")
+	// установите лимит тела клиента
+- setup routes in a server to different directories									+
+	// настройте маршруты в разные дирректории
+- setup a default file to search for if you ask for a directory						+
+	// установите файл по умолчанию если запрашивается каталог
+- setup a list of method accepted for a certain route (ex: try to delete			+
+	something with and without permission) Using telnet, curl, prepared files
+	demonstrates that the following features work properly:
+	// настроить список методов, принятых для определенного маршрута (например,
+	// попытаться удалить что-либо с разрешением и без него). Использование
+	// telnet, curl, подготовленных файлов демонстрирует, что следующие
+	// функции работают правильно: 
+- GET requests -> should work
+- POST requests -> should work
+- DELETE requests -> should work
+- UNKNOWN requests -> should not produce any crash
+- For every test the status code must be good
+- upload some file to the server and get it back
+
+Check with a browser
+- Use the reference browser of the team, open the network part of it and try to		+
+	connect to the server with it
+	// Воспользуйтесь ссылочным браузером команды, откройте его сетевую часть и
+	// попробуйте подключиться к серверу с его помощью 
+- Look at the request header and response header									+
+	// Посмотри заголовки запроса и заголовки ответа
+- It should be compatible to serve a fully static website							+
+	// Он должен быть совместимым что бы обслуживать полностью статический сайт
+- Try a wrong URL on the server														+
+	// Попробуй неверный адрес
+- Try to list a directory															+
+	// Попробуй список каталогов
+- Try a redirected URL																+
+	// Попробуй редирект
+- Try things																		+
+	// Попробуй файлы??? (что нибудь)
+
+Port issues
+	// проблемы с портом
+- In the configuration file setup multiple ports and use different websites,		+
+	use the browser to check that the configuration is working as expected, and
+	show the right website.
+	// В файле конфигурации настроены несколько сайтов и портов - проверь как
+	// все работает
+- In the configuration try to setup the same port multiple times. It should not		+
+	work.
+	// Попробуй настроить один и тот же порт для разных сайтов - не должен
+	// работать
+- Launch multiple servers at the same time with different configurations but		+
+	with common ports. Is it working? If it is working, ask why the server
+	should work if one of the configurations isn't working. keep going
+	// Запускайте несколько серверов одновременно с разными конфигурациями, но
+	// с общими портами. Работает?
+	// Если это работает, спросите, почему сервер должен работать, если одна из
+	// конфигураций не работает. продолжайте
+
+Siege & stress test
+- Use Siege to run some stress tests.												+
+	// Запустите Siege для стресс теста
+- Availability should be above 99.5% for a simple get on an empty page with a		+
+	siege -b on that page
+	// Доступность должна быть выше 99,5% для простого перехода на пустую
+	// страницу с siege -b на этой странице. 
+- Check if there is no memory leak (monitor the process memory usage it should		+
+	not go up indefinitely)
+	// Проверь утечки на процессах (не должны увеличиваться бесконечно)
+- Check if there is no hanging connection											+
+	// проверь нет ли зависшего соединения
+- You should be able to use siege indefinitely without restarting the server		+
+	(look at siege -b)
+	// должна быть возможность использовать siege бесконечно без перезапуска
+	// сервера
+
+Bonus Part
+Cookies and session
+There's a working session and cookies system on the webserver.						-
+	// На веб-сервере есть рабочий сеанс и система файлов cookie. 
+CGI
+There's more than one CGI system.													+
+	// Есть более одного сиджи в системе

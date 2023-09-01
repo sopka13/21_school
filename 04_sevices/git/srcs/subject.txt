@@ -1,0 +1,106 @@
+Chapter I
+Introduction
+	Ft_services will introduce you to Kubernetes. You will discover cluster management and
+	deployment with Kubernetes. You will virtualize a network and do "clustering".
+	// Ft_services познакомит вас с Kubernetes. Вы откроете для себя управление кластером и
+	// развертывание с помощью Kubernetes. Вы виртуализируете сеть и сделаете «кластеризацию» 
+
+Chapter II
+General instructions
+•	You must put all the necessary files for the configuration of your server in a folder
+	called srcs.
+	// Вы должны поместить все необходимые файлы для конфигурации вашего сервера в папку
+	// с именем srcs. 
+•	Your setup.sh file should be at the root of your repository. This script will setup
+	all your applications.
+	// Ваш файл setup.sh должен находиться в корне вашего репозитория. Этот сценарий
+	// настроит все ваши приложения. 
+•	This subject requires both old and new practices. We therefore advise you not to
+	be afraid to read a lot of documentation about Docker, Kubernetes, and all other
+	things useful for the project.
+	// Этот предмет требует как старых, так и новых практик. Поэтому мы советуем вам
+	// не бояться читать много документации о Docker, Kubernetes и всем остальном,
+	// что полезно для проекта.
+
+Chapter III
+Mandatory part
+	The project consists of setting up an infrastructure of different services. To do this, you
+	must use Kubernetes. You will need to set up a multi-service cluster. Each service will have
+	to run in a dedicated container. Each container must be ar the same name as the service
+	concerned and for performance reasons, containers have to be build using Alpine Linux. Also,
+	they will need to have a Docker file written by you which is called in the setup.sh. You will
+	have to build yourself the images that you will use. It is forbidden to take already build
+	images or use services like DockerHub.
+	// Проект состоит из создания инфраструктуры различных сервисов. Для этого необходимо использовать
+	// Kubernetes. Вам нужно будет настроить мультисервисный кластер, каждая служба должна будет
+	// работать в выделенном контейнере. Каждый контейнер должен иметь то же имя, что и соответствующая
+	// служба, а из соображений производительности контейнеры должны быть построены с использованием
+	// Alpine Linux. Кроме того, им потребуется написанный вами файл Docker, который вызывается в setup.sh.
+	// Вам нужно будет создать себе образы, которые вы будете использовать. Запрещено брать уже созданные
+	// образы или пользоваться сервисами вроде DockerHub.
+
+	You will also have to set up:
+	// Вам также необходимо будет настроить: 
+•	The Kubernetes web dashboard. This will help you manage your cluster.
+	// Веб-панель Kubernetes. Это поможет вам управлять своим кластером.
+•	The Load Balancer which manages the external access of your services. It will bet he only entry
+	point to your cluster. You must keep the ports associated with the
+	service (IP:3000 for Grafana etc). Load Balancer will have a single ip.
+	// TheLoad Balancer, который управляет внешним доступом к вашим услугам. Это будет единственная
+	// точка входа в ваш кластер. Вы должны сохранить порты, связанные с сервисом
+	// (IP: 3000 для Grafana и т. Д.). Балансировщик нагрузки будет иметь один IP-адрес. 
+•	A WordPress website listening on port 5050, which will work with a MySQL database. Both
+	services have to run in separate containers. The WordPress website will have several users and
+	an administrator. Wordpress needs its own nginx server. The Load Balancer should be able to
+	redirect directly to this service.
+	// Веб-сайт WordPress, прослушивающий порт 5050, который будет работать с базой данных MySQL.
+	// Обе службы должны работать в отдельных контейнерах. На сайте WordPress будет несколько
+	// пользователей и администратор. Wordpress нужен собственный сервер nginx. Балансировщик
+	// нагрузки должен иметь возможность перенаправлять напрямую на эту службу. 
+•	phpMyAdmin, listening on port 5000 and linked with the MySQL database. Php-MyAdmin needs its
+	own nginx server. The Load Balancer should be able to redirect directly to this service.
+	// phpMyAdmin, прослушивающий порт 5000 и связанный с базой данных MySQL. Php-MyAdmin нужен
+	// собственный сервер nginx. Балансировщик нагрузки должен иметь возможность перенаправлять
+	// напрямую на эту службу. 
+•	A container with an nginx server listening on ports 80 and 443. Port 80 will be in http and
+	should be a systematic redirection of type 301 to 443, which will be in https.The page
+	displayed does not matter as long as it is not an http error. This container will allow access
+	to a /wordpress route that makes a redirect 307 to IP:WPPORT. It should also allow access to 
+	/phpmyadmin with a reverse proxy to IP:PMAPORT.
+	// Контейнер с сервером nginx, прослушивающим порты 80 и 443. Порт 80 будет в http и должен быть
+	// систематическим перенаправлением типа 301 на 443, который будет в https. Отображаемая страница
+	// не имеет значения, если это не http ошибка. Этот контейнер разрешит доступ к маршруту
+	// /wordpress, который делает адрес 307 direct с IP: WPPORT. Он также должен разрешать доступ
+	// к /phpmyadmin с обратным прокси-сервером IP: PMAPORT. 
+•	A FTPS server listening on port 21.
+	// Сервер FTPS прослушивает порт 21.
+•	A Grafana platform, listening on port 3000, linked with an InfluxDB database. Grafana will be
+	monitoring all your containers. You must create one dashboard per service. InfluxDB and grafana
+	will be in two distincts containers.
+	// Платформа Grafana, прослушивающая порт 3000, связана с базой данных InfluxDB. Grafana будет
+	// отслеживать все ваши контейнеры. Вы должны создать одну информационную панель для каждой
+	// службы. InfluxDB и графана будут находиться в двух разных контейнерах. 
+•	In case of a crash or stop of one of the two database containers, you will have to make shure
+	the data persist.
+	// В случае сбоя или остановки одного из двух контейнеров базы данных вам необходимо убедиться,
+	// что данные сохраняются. 
+•	All your containers must restart in case of a crash or stop of one of its component parts.
+	// Все ваши контейнеры должны перезапускаться в случае сбоя или остановки одной из его составных частей.
+
+	Make sure that each redirection toward a service is done using a load balancer. FTPS, Grafana,
+	Wordpress, PhpMyAdmin and nginx’s kind must be "LoadBalancer". Influxdb and MySQL’s kind must be
+	"ClusterIP". Other entries can be present, but none of them can be of kind "NodePort".
+	// Убедитесь, что каждое перенаправление к службе выполняется с помощью балансировщика нагрузки.
+	// Типы FTPS, Grafana, Wordpress, PhpMyAdmin и nginx должны быть LoadBalancer. Тип Influxdb и MySQL
+	// должен быть «ClusterIP». Могут присутствовать и другие записи, но ни одна из них не может быть
+	// типа «NodePort». 
+
+	!!! Usage of Node Port services, Ingress Controller object or kubectlport-forward command is prohibited.
+	Your Load Balancer should be the only entry point for the Cluster. !!!
+	// Использование сервисов Node Port, объекта Ingress Controller или команды kubectlport-forward запрещено.
+	// Балансировщик нагрузки должен быть единственной точкой входа в кластер. 
+
+	!!! It’s useless try to use any Load Balancer provided by Cloud Provider.
+	you should rather look at MetalLB. !!!
+	// Бесполезно пытаться использовать любой балансировщик нагрузки, предоставляемый облачным провайдером.
+	// Вам лучше посмотреть на MetalLB. 

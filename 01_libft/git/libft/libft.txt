@@ -1,0 +1,50 @@
+ft_atoi.c       int     ft_atoi(const char *a)              Полученный на ввод текст преобразует в int;
+ft_bzero.c      void    ft_bzero(void *s, size_t n)         В n-байт массива записывает ноль;
+ft_calloc.c     void	*ft_calloc(size_t n, size_t size)   Выделяет память malloc размером n*size и заполняет нулями;
+ft_isalnum.c    int		ft_isalnum(int c)                   Принадлежность алфавиту и цифрам вернет 1 если да, иначе 0;
+ft_isalpha.c    int		ft_isalpha(int c)                   Проверяет принадлежность алфавиту вернет 1 если да, иначе 0;
+ft_isascii.c    int		ft_isascii(int c)                   Принадлежность ASCII c 0 по 127 символ 1 если да, иначе 0;
+ft_isdigit.c    int		ft_isdigit(int c)                   Проверяет принадлежность цифрам вернет 1 если да, иначе 0;
+ft_isprint.c    int		ft_isprint(int c)                   Принадлежность печатным символам с 31 по 127 символ;
+ft_itoa.c       char	*ft_itoa(int n)                     Полученное на вход число int преобразует в строку;
+ft_memccpy.c    void	*ft_memccpy(void *dest, const void *src, int c, size_t n) Копирует в dest из src не более n байт
+                                                            пока не встретит символ "с" в src;
+ft_memchr.c     void	*ft_memchr(const void *s, int c, size_t n) Возвращает указатель на первое вхождение символа "с"
+                                                            в строке s;
+ft_memcmp.c     int		ft_memcmp(const void *s1, const void *s2, size_t n) Сравнивает n байт в 2 массивах и возвращает
+                                                            положительное число если первый отличный символ больше,
+                                                            отрицательное если меньше и 0 если нет отличий;
+ft_memcpy.c     void	*ft_memcpy(void *dest, const void *src, size_t n) Копирует n байт из src в dest;
+ft_memmove.c    void	*ft_memmove(void *dest, const void *src, size_t n) Копирует n байт из src в dest даже если
+                                                            массивы пересекаются;
+ft_memset.c     void	*ft_memset(void *s, int c, size_t n) Записывает в массив n байт символами "c";
+ft_putchar_fd.c void	ft_putchar_fd(char c, int fd)       Печатает символ "c" в указанный файловый дискриптор;
+ft_putendl_fd.c void	ft_putendl_fd(char *s, int fd)      Печатает массив s в указанный дескриптор и ставит в конце \n;
+ft_putnbr_fd.c  void	ft_putnbr_fd(int n, int fd)         Печатает число "n" в указанный файловый дискриптор;
+ft_putstr_fd.c  void	ft_putstr_fd(char *s, int fd)       Печатает указанный массив в указанный дискриптор;
+ft_split.c      char	**ft_split(const char *s, char c)   Поданный на ввод текст делит с помощюь переданного разделителя
+                                                            и помещает каждую часть текста в свой массив выделенный
+                                                            malloc в последний массив записывает NULL;
+ft_strchr.c     char	*ft_strchr(const char *s, int c)    Ищет в строке s символ "c" и возвращает указатель на него;
+ft_strdup.c     char	*ft_strdup(const char *src)         Выделяет память malloc и записывает туда переданный массив;
+ft_strjoin.cchar		*ft_strjoin(const char *s1, const char *s2) Объединяет две строки и записывает их в выделенную память
+                                                            malloc;
+ft_strlcat.c    size_t	ft_strlcat(char *dst, const char *src, size_t size) Соединяет две строки но не более size байт;
+ft_strlcpy.c    size_t	ft_strlcpy(char *dst, const char *src, size_t size) Записывает в dst строку src не более size байт;
+ft_strlen.c     size_t	ft_strlen(const char *s)            Считает количество символов в переданном массиве;
+ft_strmapi.c    char	*ft_strmapi(const char *s, char (*f)(unsigned int, char)) Применяет функцию f к каждому элементу
+                                                            массива s;
+ft_strncmp.c    int		ft_strncmp(const char *s1, const char *s2, size_t n) Сравнивает n символов двух массивов и возвращает
+                                                            -1 если первый меньше, 1 если первый больше и 0 если оба равны;
+ft_strnstr.c    char	*ft_strnstr(const char *big, const char *little, size_t len) Ищет первое полное вхождение
+                                                            little в массив big и возвращет указатель на него, смотрит
+                                                            не более len байт;
+ft_strrchr.c    char	*ft_strrchr(const char *s, int c)   Ищет последнее вхождение символа "c" в массив s и возвращает
+                                                            указатель на него;
+ft_strtrim.c    char	*ft_strtrim(const char *s1, const char *set) Отсекает от массива символы переданные в set
+                                                            сначала и с конца массива;
+ft_substr.c     char	*ft_substr(const char *s, unsigned int start, size_t len) Выделяет память malloc и
+                                                            и записывает массив часть массива s размером len начало
+                                                            которого указывает start;
+ft_tolower.c    int		ft_tolower(int c)                   Преобразует символ в строчный если он заглавный;
+ft_toupper.c    int		ft_toupper(int c)                   Преобразует поданный символ в заглавный если он строчный;

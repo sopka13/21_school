@@ -1,0 +1,88 @@
+	Containers check
+Verify that each container is correctly implemented.									+
+
+	Vector basics
+Make sure that each member function, overload and iterator are present and work			+
+as expected.
+// Убедитесь, что каждая функция-член, перегрузка и итератор присутствуют и
+// работают как и ожидалось.
+Use the standard library container to check that everything works the same way.			+
+// Используйте контейнер стандартной библиотеки, чтобы убедиться, что все
+// работает одинаково.
+
+	Vector Advance
+The inner data structure should be a dynamic array.										+
+// Внутренняя структура данных должна быть динамическим массивом.
+const_iterator and iterators should be comparable.
+// const_iterator и итераторы должны быть сопоставимы. 									+
+Check the dynamic reallocation system.													+
+// Проверьте систему динамического перераспределения.
+Test the swap function.																	+
+All iterators, pointers and references referring to elements in both containers			+
+remain valid, and are now referring to the same elements they referred to before
+the call, but in the other container, where they now iterate.
+// Все итераторы, указатели и ссылки, относящиеся к элементам в обоих контейнерах,
+// остаются действительными и теперь относятся к тем же элементам, на которые они
+// ссылались до вызова, но в другом контейнере, где они теперь итерируют.
+Check that friend keyword is used only for operators.
+
+	Vector Performance
+Make sure that the speed is reasonable compared to the STL vector! For example,			+
+a deep copy should allocate all the memory in one call.
+// Убедитесь, что скорость разумная по сравнению с вектором STL! Например, глубокая
+// копия должна выделить всю память за один вызов.
+
+	Map Basics
+Make sure that each member function, overload and non-member overload are present		+
+and work as expected.
+// Убедитесь, что каждая функция-член, перегрузка и перегрузка, не являющаяся
+// членом, присутствуют и работают должным образом.
+Use the standard library container to check that everything works the same way.			+
+
+	Map Advance
+Check the inner structure should be an ordered tree (AVL tree, R-B tree...) Check		+
+that pair<> is recoded and used.
+// Убедитесь, что внутренняя структура должна быть упорядоченным деревом (дерево AVL,
+// дерево R-B ...). Убедитесь, что пара <> перекодирована и используется.
+ft::make_pair worked as intended.														+
+// ft::make_pair работает как задумано.
+There are never two of the same Key in one map.											+
+// На одной карте никогда не бывает двух одинаковых ключей. 
+Check that the container is ordered.													+
+// Убедитесь, что контейнер заказан.
+Check std::allocator and allocator::rebind are used and there's no direct usage			+
+of new. Check that insert or delete do not invalidate iterators.
+// Убедитесь, что используются std :: allocator и allocator :: rebind и нет
+// прямого использования new. Убедитесь, что вставка или удаление не отменяют итераторы.
+Swap function should not move data but only pointers.									+
+// Функция подкачки не должна перемещать данные, а только указатели. 
+Friend keyword should only be used for operator overload.								+
+There's no memory leak.																	+
+
+	Map Performance
+Make sure that the speed is reasonable compared to the STL! Slower than the STL			+
+is ok.
+A complete timeout is not.																+
+// Полного таймаута нет. 
+If it's more than x20 slower than the STL you should count false.						+
+// Если он более чем в 20 раз медленнее, чем STL, следует считать провалом. 
+
+	Stack Basics
+Make sure that each member function, overload and non-member overload are present		+
+and work as expected.
+// Убедитесь, что каждая функция-член, перегрузка и перегрузка, не являющаяся членом,
+// присутствуют и работают должным образом. 
+Use the standard library container to check that everything works the same way.			+
+
+	Stack Advance
+The standard container classes vector, deque and list are compatible as underlying		+
+container.
+// Стандартные классы контейнера vector, deque и list совместимы как базовый контейнер.
+The stack cannot be iterate.															+
+// Стек нельзя перебрать.
+The underlying container must be protected and not private!								+
+// Базовый контейнер должен быть защищенным, а не приватным!
+
+// check compare iterator and const_iterator for original and ft_ container map, vector		+
+// swap func in vector																		+
+// show speed for containers																+

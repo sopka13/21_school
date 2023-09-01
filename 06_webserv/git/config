@@ -1,0 +1,93 @@
+• In this config file we should be able to:
+// Твой конфиг файл должен уметь:
+
+!!! You can inspire yourself from the "server" part of Nginx
+configuration file
+// Можешь вдохновиться серверной частью конфигфайла нджинкс
+
+◦	choose the port and host of each "server"															+
+	// выбери порт и хост каждого сервера
+◦	setup the server_names or not																		+
+	// установи имя сервера или нет
+◦	The first server for a host:port will be the default for this host:port (meaning					-
+	it will answer to all request that doesn’t belong to an other server)
+	// Первый сервер для хост::порт должен быть по умолчанию для хост::порт
+	// (значит что он отвечает на все запросы если они не идут другим серверам)
+◦	setup default error pages																			+
+	// установи еррор пайдж
+◦	limit client body size																				+
+	// лимит размера тела клиента
+◦	setup routes with one or multiple of the following rules/configuration (routes
+	wont be using regexp):
+	// настроить маршруты одним или несколькими правилами/конф (
+	// марщруты не будут использовать регулярные выражения)
+	∗	define a list of accepted HTTP Methods for the route											+
+		// определите список принятых НТТР методов для маршрута
+	∗	define an HTTP redirection.																		+
+		// определите редиректы НТТР
+	∗	define a directory or a file from where the file should be search (for example					+
+		if url /kapouet is rooted to /tmp/www, url /kapouet/pouic/toto/pouet is
+		/tmp/www/pouic/toto/pouet)
+		// определите дирректорию или файл в котом файл должен быть найден
+	∗	turn on or off directory listing																+
+		// включить или выключить списки каталогов
+	∗	default file to answer if the request is a directory											+
+		// файл по умолчанию если запрос это дирректория
+	∗	execute CGI based on certain file extension (for example .php)									+
+		// выполнение сиджи основано на определенном расширении файла ( .пхп)
+		·	You wonder what a CGI is ?																	+
+			// Тебе интересно что такое сиджи?
+		·	Because you won’t call the CGI directly use the full path as PATH_INFO						+
+			// Поскольку вы небудете использовать сиджи напрямую, используйте полнуый путь ПАФ_...
+		·	Just remembers that for chunked request, your server needs to unchun-						-
+			ked it and the CGI will expect EOF as end of the body.
+			// Просто помните, что для фрагментированного запроса ваш сервер должен его отключить,
+			// и CGI будет ожидать EOF как конец тела.
+		·	Same things for the output of the CGI. if no content_length is returned						-
+			from the CGI, EOF will mean the end of the returned data.
+			// Те же вещи для вывода сиджи. Если нет контента для вывода сиджи ЕОФ покажет что
+			// вывод данных окончен
+		·	Your program should call the cgi with the file requested as first argu-						+
+			ment
+			// Ваша программа должна вызвать сиджи для файла в качестве первого аргумента
+		·	the cgi should be run in the correct directory for relativ path file access					+
+			// Ваша программа должны запуститься в правильном каталоге для доступа к файлу по отн пути
+		·	your server should work with one CGI (php-cgi, python...)									+
+			// Твой сервер должен работать с одним сиджи ( ... )
+	∗	make the route able to accept uploaded files and configure where it should						+
+		be saved
+		// создать маршрут для приема загруженных файлов и конфигурацию где он должен быть сохранен
+
+You must provide some configuration files and default basic files to test/demonstrate					+
+every feature is working during evaluation.
+// Ты должен предоставить какую нибудь конфигурацию (файлы) и файлы для тестирования и демонтрации
+// работоспособности во время оценки
+
+
+!!! If you’ve got a question about one behavior, you should compare your								+
+program behavior with Nginx. For example, check how server_name
+works... We’ve shared with you a small tester it’s not mandatory to
+pass it if everything works fine with your browser and tests but it
+can help you hunt some bugs.
+// Если ты имеешь вопросы о каком то поведении, ты должен сравнить
+// твою программу с поведением Нджинкс. Например, проверь работу имени сервера..
+// Мы приложили для тебя маленький тестер который необязательно проходить если
+// если все работает хорошо с твоим браузером и тест может быть полезен найти
+// какие нибудь баги.
+
+!!! Please read the RFC and do some tests with telnet and Nginx before									+
+starting this project. Even if you don’t have to implement all the
+RFC reading it will help you make the required features.
+// Пожалуйста читайте РФС и проведите некоторые тесты с телнет и нджинкс
+// перед стартом этого проекта. Даже если тебе не нужно реализовывать все
+// РФС чтения это тебе поможет создать все необходимые функции.
+
+!!! The important thing is resilience. Your server should never die.									+
+// Главное - Стойкость. Твой сервер никогда не должен умереть.
+
+!!! Do not test with only one program, write your test with a language									-
+quick to write/use, like python or golang, etc... you can even do
+your test in c or c++
+// не тестируй только одной рпограммой, напиши тест на каком либо языке
+// написал запустил типа пайтон или голанг или др. ты можешь сделать
+// тесты на с или с++

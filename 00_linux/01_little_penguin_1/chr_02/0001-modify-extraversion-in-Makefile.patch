@@ -1,0 +1,29 @@
+From ca7195e6e77b99f364f5bd5bd8329eefa1630d54 Mon Sep 17 00:00:00 2001
+From: sopka13 <sopka13@mail.ru>
+Date: Tue, 25 Oct 2022 10:11:27 +0300
+Subject: modify extraversion in Makefile
+
+Add flag to extraversion
+
+Signed-off-by: eyohn <eyohn@student.21-school.ru>
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index f41ec8c8426b..d94bb773461e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,7 +2,7 @@
+ VERSION = 6
+ PATCHLEVEL = 1
+ SUBLEVEL = 0
+-EXTRAVERSION = -rc1
++EXTRAVERSION = -rc1-thor_kernel
+ NAME = Hurr durr I'ma ninja sloth
+ 
+ # *DOCUMENTATION*
+-- 
+2.37.2
+

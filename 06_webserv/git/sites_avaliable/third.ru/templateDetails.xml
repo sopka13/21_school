@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
+<extension version="2.5" type="template" client="site">
+	<name>a4joomla-goldenreed-free</name>
+	<creationDate>January 2012</creationDate>
+	<author>a4joomla.com</author>
+	<authorEmail>admin@a4joomla.com</authorEmail>
+	<authorUrl>www.a4joomla.com</authorUrl>
+	<copyright>Copyright 2012 a4joomla.com</copyright>
+	<license>Creative Commons</license>
+	<version>1.0</version>
+	<description>
+	<![CDATA[
+	<h1>a4joomla goldenreed free</h1>
+	<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
+	<img alt="Creative Commons License" style="border-width:0;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a></p>
+	<p>This work by <a xmlns:cc="http://creativecommons.org/ns#" href="http://a4joomla.com" property="cc:attributionName" rel="cc:attributionURL">a4joomla.com</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License</a>.</p>
+	<p style="color: red; font-weight: bold; font-size: 13px;">The professional version can be purchased at <a href="http://a4joomla.com/">a4joomla.com</a>.</p>
+	<img src="../templates/a4joomla-goldenreed-free/template_thumbnail.png" align="left" style="margin-right:5px;" />
+	]]> 
+	</description>
+<files>
+  <filename>index.php</filename>
+  <filename>index.html</filename>
+  <filename>templateDetails.xml</filename>
+  <filename>iepngfix.htc</filename>
+  <filename>template_thumbnail.png</filename>
+  <filename>template_preview.png</filename>
+  <filename>component.php</filename>
+  <folder>js</folder>
+  <folder>css</folder>
+  <folder>images</folder>
+  <folder>language</folder>
+</files>
+<positions>                          
+  <position>position-1</position>
+  <position>position-2</position>
+  <position>position-6</position>
+  <position>position-7</position>
+  <position>position-14</position>
+</positions>
+<languages folder="language">
+	<language tag="en-GB">en-GB/en-GB.tpl_a4joomla-goldenreed-free.ini</language>
+	<language tag="en-GB">en-GB/en-GB.tpl_a4joomla-goldenreed-free.sys.ini</language>
+</languages>          
+<config>
+  <fields name="params">
+    <fieldset name="basic">
+       <field name="logoText" type="text" default="Goldenreed" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_LOGOTEXT_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_LOGOTEXT_DESC" />
+       <field name="slogan" type="text" default="Joomla template from a4joomla.com" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_SLOGAN_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_SLOGAN_DESC" />
+       <field name="pageWidth" type="text" default="980" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_PAGEWIDTH_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_PAGEWIDTH_DESC" />
+       <field name="rightColumnWidth" type="text" default="190" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_RIGHTCOLUMNWIDTH_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_RIGHTCOLUMNWIDTH_DESC" />
+       <field name="leftColumnWidth" type="text" default="190" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_LEFTCOLUMNWIDTH_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_LEFTCOLUMNWIDTH_DESC" />
+       <field name="logoWidth" type="text" default="260" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_LOGOWIDTH_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_LOGOWIDTH_DESC" />
+	   <field type="spacer" name="myspacer1" hr="true" />
+	   <field type="spacer" name="myspacer2" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_MYSPACER2_LABEL" />
+       <field name="headerType" type="list" default="1" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_HEADERTYPE_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_HEADERTYPE_DESC">
+			<option value="0">TPL_A4JOOMLA-GOLDENREED-FREE_OPTION_ANIMAGE</option>
+  			<option value="1">TPL_A4JOOMLA-GOLDENREED-FREE_OPTION_SLIDESHOW</option>
+			<option value="2">TPL_A4JOOMLA-GOLDENREED-FREE_OPTION_ANIMAGEFORALL</option>
+  			<option value="3">TPL_A4JOOMLA-GOLDENREED-FREE_OPTION_SLIDESHOWFORALL</option>
+			<option value="4">TPL_A4JOOMLA-GOLDENREED-FREE_OPTION_NOTHING</option>
+	   </field>
+	   <field name="myimage" type="imagelist" default="goldenreed1.jpg" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_MYIMAGE_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_MYIMAGE_DESC" directory="templates/a4joomla-goldenreed-free/images" exclude="" stripext="" />
+	   <field name="myfolder" type="folderlist" default="sampledata" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_MYFOLDER_LABEL" directory="templates/a4joomla-goldenreed-free/images" filter="" exclude="" stripext=""  description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_MYFOLDER_DESC"/>
+	   <field name="imageWidth" type="text" default="950" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_IMAGEWIDTH_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_IMAGEWIDTH_DESC" />
+	   <field name="imageHeight" type="text" default="370" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_IMAGEHEIGHT_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_IMAGEHEIGHT_DESC" />
+	   <field name="delay" type="text" default="4000" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_DELAY_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_DELAY_DESC" />
+	   <field name="duration" type="text" default="800" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_DURATION_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_DURATION_DESC" />
+	   <field name="display" type="list" default="sequence" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_DISPLAY_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_DISPLAY_DESC">
+			<option value="random">TPL_A4JOOMLA-GOLDENREED-FREE_OPTION_RANDOM</option>
+			<option value="sequence">TPL_A4JOOMLA-GOLDENREED-FREE_OPTION_SEQUENCE</option>
+	   </field>
+	   <field name="forceresize" type="list" default="0" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_FORCERESIZE_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_FORCERESIZE_DESC">
+			<option value="0">TPL_A4JOOMLA-GOLDENREED-FREE_OPTION_NORESIZE</option>
+			<option value="1">TPL_A4JOOMLA-GOLDENREED-FREE_OPTION_RESIZE</option>
+       </field>
+	   <field name="showControl" type="list" default="true" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_SHOWCONTROL_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_SHOWCONTROL_DESC">
+			<option value="false">TPL_A4JOOMLA-GOLDENREED-FREE_OPTION_NOCONTROL</option>
+			<option value="true">TPL_A4JOOMLA-GOLDENREED-FREE_OPTION_SHOWCONTROL</option>
+       </field>
+	   <field name="arrowColor" type="list" default="white" label="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_ARROWCOLOR_LABEL" description="TPL_A4JOOMLA-GOLDENREED-FREE_FIELD_ARROWCOLOR_DESC">
+			<option value="white">TPL_A4JOOMLA-GOLDENREED-FREE_OPTION_WHITEARROW</option>
+			<option value="black">TPL_A4JOOMLA-GOLDENREED-FREE_OPTION_BLACKARROW</option>
+       </field>
+    </fieldset>
+  </fields>
+</config>
+</extension>

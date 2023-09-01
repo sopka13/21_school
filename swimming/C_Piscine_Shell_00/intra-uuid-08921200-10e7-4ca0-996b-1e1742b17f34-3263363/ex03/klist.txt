@@ -1,0 +1,10 @@
+un-h2% kinit cas
+cas@KZN.21-SCHOOL.RU's password:
+kinit: krb5_get_init_creds: Error from KDC: CLIENT_NOT_FOUND
+
+kinit
+Credentials cache: API:CAE24080-295C-4E13-8594-AF5211015993
+        Principal: eyohn@KZN.21-SCHOOL.RU
+
+  Issued                Expires               Principal
+Jul 20 18:13:39 2020  Jul 21 04:13:25 2020  krbtgt/KZN.21-SCHOOL.RU@KZN.21-SCHOOL.RU

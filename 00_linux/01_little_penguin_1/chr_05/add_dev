@@ -1,0 +1,22 @@
+#!/bin/bash
+
+module="main"
+device="fortytwo"
+mode="664"
+
+# вызвать insmod со всеми полученными параметрами
+# и использовать имя пути, так как новые modutils не просматривают . по умолчанию
+#/sbin/insmod ./$module.ko $* || exit 1
+
+# удалить давно ненужные узлы
+rm -f /dev/${device}
+
+major=$(awk "\$2==\"$module\" {print \$1}" /proc/devices)
+sudo mknod /dev/${device} c $major 0
+
+# назначьте соответствующую группу/разрешения, и измените группу.
+# не все дистрибутивы имеют "staff", некоторые вместо этого используют "wheel".
+group="sergey"
+
+chgrp $group /dev/${device}
+chmod $mode /dev/${device}

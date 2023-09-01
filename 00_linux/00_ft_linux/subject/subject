@@ -1,0 +1,205 @@
+ft_linux
+how_to_train_your_kernel
+// как подготовить твое ядро
+
+Summary: Make your own linux distribution
+// Создайте свой собственный дистрибутив linux
+
+Chapter I
+Introduction
+Welcome to ft_linux. In this subject, you have to build a basic, but
+functional, linux distribution.
+// Добро пожаловать в ft_linux. В этой теме вам нужно создать базовый,
+// но функциональный дистрибутив Linux.  
+This subject is not about Kernel programming, but it’s highly related.
+// Эта тема не о программировании ядра, но очень тесно связана с ней.
+This distro will be the base for all your kernel projects, because all
+your kernel-code will be executed here, on your distro.
+// Этот дистрибутив будет базой для всех ваших проектов ядра, потому
+// что весь ваш код ядра будет выполняться здесь, в вашем дистрибутиве.
+Try to implement what you want/need to. This is your userspace, take
+care of it!
+// Попробуйте реализовать то, что вы хотите/нужно. Это ваше
+// пользовательское пространство, берегите его!
+
+Chapter II
+Goals
+// Цели
+• Build a Linux Kernel
+// Постройте ядро линукс
+• Install some binaries (See the list below)
+// Установите несколько двоичных файлов (см. список ниже)
+• Implement a filesystem hierarchy compliant with the standards
+// Реализовать иерархию файловой системы, соответствующую стандартам
+• Connect to the Internet
+// Соединитесь с интеренетом
+
+Chapter III
+General instructions
+// Основные инструкции
+III.0.1 The links
+// Ссылки
+• The Bible
+• How to build a Kernel
+• Autotools
+
+III.0.2 Instructions
+// Инструкции
+• For this subject, you must use a virtual machine, live VirtualBox or VMWare.
+// Для этого предмета вы должны использовать виртуальную машину, live VirtualBox
+// или VMWare.
+• Though it is not REQUIRED, you SHOULD read this and that right now. Keep
+those standards in mind. You won’t be graded on your compliance with them, but
+still, it would be good practice.
+// Хотя это НЕ ТРЕБУЕТСЯ, вы ДОЛЖНЫ прочитать то и это прямо сейчас. Помните
+// об этих стандартах. Вы не будете оцениваться по их соблюдению, но тем не
+// менее, это было бы хорошей практикой.
+• You must use a kernel version >= 4.0. Stable or not, as long as it’s a 4.0 >=
+version.
+// Используйте версию 4 или выше. Стабильную или нет выше 4й
+• The kernel sources must be in /usr/src/kernel-$(version)
+// Исходники ядра должны находится по адресу выше
+• You must use at least 3 differents partitions. (root, /boot and a swap partition).
+You can of course make more partitions if you want to.
+// Вы должны использовать как минимум 3 разных раздела. (root, /boot и раздел подкачки).
+// Вы, конечно, можете сделать больше разделов, если хотите.
+• Your distro must implement a kernel_module loader, like udev.
+// В вашем дистрибутиве должен быть реализован загрузчик kernel_module, например udev.
+• The kernel version must contain your student login in it. Something like ‘Linux
+kernel 4.1.2-<student_login>‘
+// Версия ядра должна содержать ваш студенческий логин. Что-то вроде
+// «Ядро Linux 4.1.2-<логин_студента>».
+• The distribution hostname must be your student login
+// Имя хоста дистрибутива должно быть вашим студенческим логином.
+• You’re free to choose between a 32 or 64-bit system.
+// Вы можете выбирать между 32-битной или 64-битной системой.
+• You must use a sofware for central management and configuration, like SysV or
+SystemD.
+// Вы должны использовать программное обеспечение для централизованного управления
+// и настройки, такое как SysV или SystemD.
+• Your distro must boot with a bootloader, like LILO or GRUB.
+// Ваш дистрибутив должен загружаться с загрузчиком, таким как LILO или GRUB.
+• The kernel binary located in /boot must be named like this:
+vmlinuz-<linux_version>-<student_login>. Adapt your bootloader configuration
+to that.
+// Бинарный файл ядра, расположенный в /boot, должен называться следующим образом:
+// vmlinuz-<версия_linux>-<логин_ученика>. Адаптируйте конфигурацию загрузчика к этому.
+
+Chapter IV
+Mandatory part
+// Обязатеьная часть
+IV.0.1 Packages to Install
+// Пакет установки
+
+!!! The following versions are known to work together correctly.
+However, you are free to use the versions you want.
+// Известно, что следующие версии работают вместе правильно.
+// Тем не менее, вы можете использовать те версии, которые хотите.
+
+!!! Some packages below (vim, bash, grub, udev) are examples. Feel free
+to change them by any equivalent you like.
+// Некоторые пакеты ниже (vim, bash, grub, udev) являются примерами.
+// Не стесняйтесь менять их любым эквивалентом, который вам нравится.
+
+• Acl (2.2.52)
+• Attr (2.4.47)
+• Autoconf (2.69)
+• Automake (1.15)
+• Bash (4.3.30)
+• Bc (1.06.95)
+• Binutils (2.25.1)
+• Bison (3.0.4)
+• Bzip2 (1.0.6)
+• Check (0.10.0)
+• Coreutils (8.24)
+• DejaGNU (1.5.3)
+• Diffutils (3.3)
+• Eudev (3.1.2)
+• E2fsprogs (1.42.13)
+• Expat (2.1.0)
+• Expect (5.45)
+• File (5.24)
+• Findutils (4.4.2)
+• Flex (2.5.39)
+• Gawk (4.1.3)
+• GCC (5.2.0)
+• GDBM (1.11)
+• Gettext (0.19.5.1)
+• Glibc (2.22)
+• GMP (6.0.0a)
+• Gperf (3.0.4)
+• Grep (2.21)
+• Groff (1.22.3)
+• GRUB (2.02 beta2)
+• Gzip (1.6)
+• Iana-Etc (2.30)
+• Inetutils (1.9.4)
+• Intltool (0.51.0)
+• IPRoute2 (4.2.0)
+• Kbd (2.0.3)
+• Kmod (21)
+• Less (458)
+• Libcap (2.24)
+• Libpipeline (1.4.1)
+• Libtool (2.4.6)
+• M4 (1.4.17)
+• Make (4.1)
+• Man-DB (2.7.2)
+• Man-pages (4.02)
+• MPC (1.0.3)
+• MPFR (3.1.3)
+• Ncurses (6.0)
+• Patch (2.7.5)
+• Perl (5.22.0)
+• Pkg-config (0.28)
+• Procps (3.3.11)
+• Psmisc (22.21)
+• Readline (6.3)
+• Sed (4.2.2)
+• Shadow (4.2.1)
+• Sysklogd (1.5.1)
+• Sysvinit (2.88dsf)
+• Tar (1.28)
+• Tcl (8.6.4)
+• Texinfo (6.0)
+• Time Zone Data (2015f)
+• Udev-lfs Tarball (udev-lfs-20140408)
+• Util-linux (2.27)
+• Vim (7.4)
+• XML::Parser (2.44)
+• Xz Utils (5.2.1)
+• Zlib (1.2.8)
+
+Chapter V
+Bonus part
+// Бонусная часть
+You have a stable system ? Nice. Now let’s have some fun ! Install whatever you want.
+Any software, GUI, ANYTHING.
+Make this system yours, with your touch.
+Special points for an X Server, and window managers / desktop environments, like
+GNOME / LXDE / KDE / i3 / dwm ...
+// Специальные точки для X-сервера и оконных менеджеров/сред рабочего стола,
+// таких как GNOME/LXDE/KDE/i3/dwm...
+
+Chapter VI
+Turn-in and peer-evaluation
+// Сдача и оценка
+Turn your work in using your GiT repository, as usual. Only work present on your repos-
+itory will be graded in defense.
+// Включите свою работу, используя репозиторий GiT, как обычно. Только работа,
+// присутствующая в вашем репозитории, будет оцениваться при защите.
+For obvious reasons, you will not push your entire virtual machine but a checksum of
+your disk image instead.
+// По понятным причинам вы будете отправлять не всю виртуальную машину,
+// а контрольную сумму образа диска.
+That can be done with something like:
+// Это можно сделать с помощью чего-то вроде:
+    shasum < disk.vdi
+Keep your disk image somewhere for the peer-evaluation.
+// Сохраните образ диска где-нибудь для экспертной оценки.
+
+links:
+https://gist.github.com/bradfa/b31dde160c066e0cba0b
+https://src.fedoraproject.org/repo/pkgs/
+https://sourceware.org/pub/
+https://ftp.gnu.org/gnu/

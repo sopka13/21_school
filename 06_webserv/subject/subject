@@ -1,0 +1,75 @@
+Webserv
+
+This is when you finally understand why a URL starts with HTTP
+
+Summary: This project is here to make you write your HTTP server. You will be able
+to test it with a real browser. HTTP is one of the most used protocols on the internet.
+Knowing its arcane will be useful, even if you won’t be working on a website.
+
+Contents
+// Содержание
+I Introduction
+// Вступление
+II Mandatory part
+III Bonus part
+
+Chapter I
+Introduction
+
+The Hypertext Transfer Protocol (HTTP) is an application protocol for distributed, col-
+laborative, hypermedia information systems.
+// ... это прикладной протокол для совместных распределенных гипермедиа систем
+HTTP is the foundation of data communication for the World Wide Web, where hyper-
+text documents include hyperlinks to other resources that the user can easily access, for
+example by a mouse click or by tapping the screen in a web browser.
+// НТТР это основа коммуникации данных в ВВВ, где гипертекстовые документы включают гиперссылки
+// на другие ресурсы которые пользователь может легко получить, например кликом мыши или касанием
+// эурана в веббраузере
+HTTP was developed to facilitate hypertext and the World Wide Web.
+// НТТР был разработан для облегчения работы с гипертекстом в ВВВ
+The primary function of a web server is to store, process, and deliver web pages to clients.
+// Основная функция вебсервера - хранить, обрабатывать и доставлять вебстраницы клиентам
+The communication between client and server takes place using the Hypertext Transfer
+Protocol (HTTP).
+// Коммуникация между клиентом и сервером происходит с использованием НТТР
+
+Pages delivered are most frequently HTML documents, which may include images,
+style sheets, and scripts in addition to the text content.
+// Доставленные страницы чаще всего ХТМЛ документы которые включают рисунки,
+// стили текста, скрипты вместе с текстом
+
+Multiple web servers may be used for a high-traffic website
+// Для высоконагруженных сайтов может использоваться несколько вебсерверов
+
+A user agent, commonly a web browser or web crawler, initiates communication by
+requesting a specific resource using HTTP and the server responds with the content of
+that resource or an error message if unable to do so. The resource is typically a real file
+on the server’s secondary storage, but this is not necessarily the case and depends on how
+the webserver is implemented.
+// Юзер-агент, обычно веббраузер или поисковый робот инициирует коммуникацию запрашивая
+// конкретный ресурс используя НТТР и сервер отвечает контентом этого ресурса или сообщением об ошибке
+// если не может сделать этого. Ресурс обычно реальный файл на вторичном хранилище серверов
+// но это не всегда так и зависит от того как реализован вебсервер
+
+While the primary function is to serve content, full implementation of HTTP also in-
+cludes ways of receiving content from clients. This feature is used for submitting web
+forms, including the uploading of files.
+// Хотя основная функция сервера - обслуживание контента, вся реализация НТТР также включает пути
+// получения контента от клиентов. Эта особенность используется для отправки вебформы,
+// включая в загрузку файлов
+
+•You can use every macro and define like FD_SET, FD_CLR, FD_ISSET, FD_ZERO
+(understanding what they do and how they do it is very useful.)
+•You must write an HTTP server in C++ 98.
+•If you need more C functions, you can use them but always prefer C++.
+•The C++ standard must be C++ 98. Your project must compile with it.
+•No external library, no Boost, etc...
+•Try to always use the most "C++" code possible (for example use <cstring> over
+<string.h>).
+•Your server must be compatible with the web browser of your choice.
+•We will consider that Nginx is HTTP 1.1 compliant and may be used to compare
+headers and answer behaviors.
+•In the subject and the scale we will mention poll but you can use equivalent like
+select, kqueue, epoll.
+•It must be non-blocking and use only 1 poll (or equivalent) for all the IO between
+the client and the server (listens includes).

@@ -1,0 +1,83 @@
+version: "3.7"
+services:
+
+  nginx:                                                  # service name
+    container_name: nginx                                 # container name
+    build: ./requirements/nginx                           # dockerfile for build
+    image: nginx                                          # base image
+    restart: unless-stopped                               # if need restart container for crash
+    env_file:                                           # variables file
+      - .env
+    ports:                                                # local port in this host / open ports in container
+      - 127.0.0.1:443:443
+    networks:
+      - inception
+    volumes:                                              # work directory
+      - wp:/var/www/wordpress
+    depends_on:                                           # wait start prev containers
+      - wordpress
+
+  wordpress:                                              # service name
+    container_name: wordpress                             # container name
+    build: ./requirements/wordpress                       # dockerfile for build
+    image: wordpress                                      # base image
+    restart: unless-stopped                               # if need restart container for crash
+    env_file:                                           # variables file
+      - .env
+    networks:
+      - inception
+    volumes:                                              # work directory
+      - wp:/var/www/wordpress
+      - ip:/var/ip
+    depends_on:                                           # wait start prev containers
+      - mariadb
+    # ports:                                                # local port in this host / open ports in container
+    #   - 9000
+
+  mariadb:                                                # service name
+    container_name: mariadb                               # container name
+    build: ./requirements/mariadb                         # dockerfile for build
+    image: mariadb                                        # base image
+    # environment:
+    #   - DB_NAME
+    #   - DB_USER
+    #   - DB_PASSWORD
+    #   - DB_ROOT_PASSWORD
+    volumes:                                              # work directory
+      - db:/var/lib/mysql
+      - ip:/var/ip
+    restart: unless-stopped                               # if need restart container for crash
+    env_file:                                           # variables file
+      - .env
+    networks:
+      - inception
+    # ports:                                                # local port in this host / open ports in container
+    #   - 3306
+
+
+networks:
+  inception:
+    driver: bridge
+    name: inception
+
+volumes:
+    db:
+      driver: local
+      driver_opts:
+        type: none
+        device: ${PWD}/db-data
+        o: bind
+
+    wp:
+      driver: local
+      driver_opts:
+        type: none
+        device: ${PWD}/wp-data
+        o: bind
+
+    ip:
+      driver: local
+      driver_opts:
+        type: none
+        device: ${PWD}/ip
+        o: bind

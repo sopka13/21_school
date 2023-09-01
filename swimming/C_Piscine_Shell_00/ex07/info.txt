@@ -1,0 +1,1 @@
+un-e4% patch -p1 < sw.diff
